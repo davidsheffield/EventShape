@@ -1,0 +1,2 @@
+<use name="root"/>
+<bin name="testEventShape" file="testEventShape.cc"/>
