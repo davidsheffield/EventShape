@@ -9,8 +9,10 @@
 //   author: David. G. Sheffield, Rutgers
 //
 
-#include "TObject.h"
 #include "TLorentzVector.h"
+#include "TMatrixDSym.h"
+#include "TMatrixDSymEigen.h"
+#include "TVectorD.h"
 
 class EventShape
 {
@@ -20,8 +22,11 @@ class EventShape
   
   void addVector(TLorentzVector v);
   double getSumP2(void) const;
+  double getMomentumTensor(int,int) const;
+  TVectorD getEigenvalues();
  private:
   double fSumP2;
+  TMatrixDSym fMomentumTensor;
 };
 
 #endif
