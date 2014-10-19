@@ -9,7 +9,11 @@
 //   author: David. G. Sheffield, Rutgers
 //
 
-#include "TLorentzVector.h"
+#include <vector>
+#include <cmath>
+#include <iostream>
+
+#include "TVector3.h"
 #include "TMatrixDSym.h"
 #include "TMatrixDSymEigen.h"
 #include "TVectorD.h"
@@ -17,16 +21,19 @@
 class EventShape
 {
  public:
-  EventShape();
+  EventShape(std::vector<TVector3>);
   ~EventShape();
   
-  void addVector(TLorentzVector v);
-  double getSumP2(void) const;
-  double getMomentumTensor(int,int) const;
-  TVectorD getEigenvalues();
+  double getEigenvalue(int) const;
+  double getSphericity(void) const;
+  double getAplarity(void) const;
+  double getC(void) const;
+  double getD(void) const;
+  double getY(void) const;
  private:
-  double fSumP2;
-  TMatrixDSym fMomentumTensor;
+  double eigenvalue1_;
+  double eigenvalue2_;
+  double eigenvalue3_;
 };
 
 #endif

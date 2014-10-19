@@ -7,40 +7,30 @@
 
 #include "EventShape/Class/src/EventShape.cc"
 #include <iostream>
-#include "TLorentzVector.h"
-#include "TVectorD.h"
+#include <vector>
+#include "TVector3.h"
 
 using namespace std;
 
 int main()
 {
-  EventShape eventshape;
+  vector<TVector3> vectors;
+  vectors.push_back(TVector3(1.0,2.0,5.0));
+  vectors.push_back(TVector3(2.0,1.0,4.0));
+  vectors.push_back(TVector3(1.5,3.0,2.0));
+  cout << "vectors size: " << vectors.size() << endl;
+
+  EventShape eventshape(vectors);
   
-  TLorentzVector vec(1.5,0.0,0.0,2.0);
-  eventshape.addVector(vec);
-  vec.SetPy(2.5);
-  eventshape.addVector(vec);
-  vec.SetPz(0.5);
-  vec.SetPx(0.0);
-  eventshape.addVector(vec);
-  
-  cout << eventshape.getSumP2() << endl;
+  cout << "eigenvalue 1: " << eventshape.getEigenvalue(1) << endl;
+  cout << "eigenvalue 2: " << eventshape.getEigenvalue(2) << endl;
+  cout << "eigenvalue 3: " << eventshape.getEigenvalue(3) << endl;
 
-  for(int i=0; i<3; i++){
-    cout << "[ ";
-    for(int j=0; j<3; j++){
-      cout << eventshape.getMomentumTensor(i,j) << " ";
-    }
-    cout << "]" << endl;
-  }
-
-  cout << endl;
-
-  TVectorD eigen = eventshape.getEigenvalues();
-
-  cout << eigen[0] << endl;
-  cout << eigen[1] << endl;
-  cout << eigen[2] << endl;
+  cout << "sphericity: " << eventshape.getSphericity() << endl;
+  cout << "aplarity: " << eventshape.getAplarity() << endl;
+  cout << "C: " << eventshape.getC() << endl;
+  cout << "D: " << eventshape.getD() << endl;
+  cout << "Y: " << eventshape.getY() << endl;
 
   return 0;
 }
