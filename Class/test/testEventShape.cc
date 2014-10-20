@@ -27,7 +27,7 @@ int main()
   cout << "eigenvalue 3: " << eventshape.getEigenvalue(3) << endl;
 
   cout << "sphericity: " << eventshape.getSphericity() << endl;
-  cout << "aplarity: " << eventshape.getAplarity() << endl;
+  cout << "aplanarity: " << eventshape.getAplanarity() << endl;
   cout << "C: " << eventshape.getC() << endl;
   cout << "D: " << eventshape.getD() << endl;
   cout << "Y: " << eventshape.getY() << endl;

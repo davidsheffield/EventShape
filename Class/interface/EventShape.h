@@ -26,7 +26,7 @@ class EventShape
   
   double getEigenvalue(int) const;
   double getSphericity(void) const;
-  double getAplarity(void) const;
+  double getAplanarity(void) const;
   double getC(void) const;
   double getD(void) const;
   double getY(void) const;

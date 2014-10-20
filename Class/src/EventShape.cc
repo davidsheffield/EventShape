@@ -55,7 +55,7 @@ double EventShape::getSphericity(void) const
   return 3.0/2.0*(eigenvalue2_ + eigenvalue3_);
 }
 
-double EventShape::getAplarity(void) const
+double EventShape::getAplanarity(void) const
 {
   return 3.0/2.0*eigenvalue3_;
 }
